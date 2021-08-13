@@ -29,7 +29,10 @@
       "@types/node"
     ]
   },
-  "files": ["vue-shim.d.ts"],
+  "files": [
+    "vue-shim.d.ts",
+    "src/@types/vue-slide-up-down.d.ts",
+  ],
   "include": [
     "components/**/*.ts",
     "components/**/*.vue",
