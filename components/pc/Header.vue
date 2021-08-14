@@ -13,7 +13,6 @@
   position: sticky;
 
   &__title {
-    width: 20%;
     padding: 15px;
     font-size: 15px;
   }

@@ -2,17 +2,38 @@
   <main class="npbPage">
     <div>
       <div class="npbPage__title">page title</div>
-      <div class="npbPage__annotation">
-        <div class="annotation">
-          <dl>
-            <dt @click="isShow = !isShow" style="background-color: red;">大阪とは</dt>
-            <!-- <dt>大阪とは</dt> -->
-            <SlideUpDown :active="isShow" :duration="200">
-              <dd style="background-color: yellow;">セレッソのこと</dd>
-            </SlideUpDown>
-          </dl>
+      <section class="annotation">
+        <div @click="showAnnotation = !showAnnotation" class="annotation__head">
+          <h2>注釈はこちら</h2>
         </div>
-      </div>
+        <SlideUpDown :active="showAnnotation" :duration="200">
+          <div class="annotation__body">
+            <ol>
+              <li v-for="item in annotations" :key="item.name">{{ item.name }}</li>
+            </ol>
+          </div>
+        </SlideUpDown>
+      </section>
+
+      <NpbItem
+        v-for="item in teams"
+        :key="item.id"
+        :team-item="item"
+      />
+
+      <section class="annotation">
+        <div @click="showAnnotation = !showAnnotation" class="annotation__head">
+          <h2>注釈はこちら</h2>
+        </div>
+        <SlideUpDown :active="showAnnotation" :duration="200">
+          <div class="annotation__body">
+            <ol>
+              <li v-for="item in annotations" :key="item.name">{{ item.name }}</li>
+            </ol>
+          </div>
+        </SlideUpDown>
+      </section>
+
       <div class="npbPage__slider">
         <a href="/">topへ</a>
       </div>
@@ -23,24 +44,28 @@
 <style lang="scss">
 .npbPage {
   &__title {
-    border: solid;
+    border: solid;  // DL
     height: 150px;
-  }
-  &__annotation {
-    height: 200px;
-    width: 80%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    .annotation {
-      height: 100px;
-      margin-top: 20px;
-      background-color: aqua;
-    }
   }
   &__slider {
     background-color: chartreuse;
     height: 300px;
+  }
+}
+.annotation {
+  width: 60%;
+  display: block;
+  margin: 30px auto;
+  border: dotted;
+  &__head {
+    height: 50px;
+    display: flex;  // 文字の中央揃え
+    align-items: center;  // 文字の中央揃え
+    justify-content: center;  // 文字の中央揃え
+  }
+  &__body {
+    padding-left: 5%;
+    border-top: dotted;
   }
 }
 </style>
@@ -48,6 +73,8 @@
 <script lang="ts">
 import { defineComponent, ref } from '@nuxtjs/composition-api'
 import SlideUpDown from 'vue-slide-up-down'
+import NpbItem from '~/components/pc/Directory/NpbItem.vue'
+import MockDirectoryData from '~/apis/MockDirectoryData'
 
 export default defineComponent({
   head: {
@@ -55,11 +82,15 @@ export default defineComponent({
   },
   components:{
     SlideUpDown,
+    NpbItem,
   },
   setup() {
-    const isShow = ref<Boolean>(false)
+    const showAnnotation = ref<Boolean>(false)
+
     return {
-      isShow,
+      showAnnotation,
+      annotations: MockDirectoryData.annotations,
+      teams: MockDirectoryData.teams,
     }
   }
 })
