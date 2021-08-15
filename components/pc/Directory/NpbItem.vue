@@ -5,7 +5,9 @@
     </div>
     <div class="directory__body">
       <div class="directory__info">
-        <div class="directory__image">this is image.</div>
+        <div class="directory__image">
+          <img src="" alt="No Image.">
+        </div>
         <div class="directory__profile">
           <ol>
             <li>{{ teamItem.birth }}年</li>
@@ -26,7 +28,8 @@
         </div>
       </div>
       <div class="directory__memo">
-        <p v-text="test"></p>
+        <!-- <p v-text="test"></p> -->
+        <p v-text="teamItem.memo"></p>
       </div>
     </div>
   </div>
@@ -88,7 +91,7 @@ export default defineComponent({
   },
   setup() {
     // 200文字
-    const test = 'べるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをなら'
+    const test = 'ここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべる'
     return {
       test,
     }

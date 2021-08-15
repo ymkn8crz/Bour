@@ -49,7 +49,7 @@
   }
   &__slider {
     background-color: chartreuse;
-    height: 300px;
+    height: 600px;
   }
 }
 .annotation {
