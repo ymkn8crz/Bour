@@ -74,7 +74,7 @@
 import { defineComponent, ref } from '@nuxtjs/composition-api'
 import SlideUpDown from 'vue-slide-up-down'
 import NpbItem from '~/components/pc/Directory/NpbItem.vue'
-import MockDirectoryData from '~/apis/MockDirectoryData'
+import MockNpbData from '~/apis/MockNpbData'
 
 export default defineComponent({
   head: {
@@ -89,8 +89,8 @@ export default defineComponent({
 
     return {
       showAnnotation,
-      annotations: MockDirectoryData.annotations,
-      teams: MockDirectoryData.teams,
+      annotations: MockNpbData.annotations,
+      teams: MockNpbData.teams,
     }
   }
 })
