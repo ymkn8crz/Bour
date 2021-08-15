@@ -16,7 +16,18 @@
         <li><a>NPB TEAM</a></li>
       </ul>
     </div>
-    <div class="topPage__slider">this is slider</div>
+    <client-only>
+      <swiper :options="swiperOptions" ref="mySwiper" class="swiper topPage__slider">
+        <swiper-slide class="sliderPage">Slide 1</swiper-slide>
+        <swiper-slide class="sliderPage">Slide 2</swiper-slide>
+        <swiper-slide class="sliderPage">Slide 3</swiper-slide>
+        <swiper-slide class="sliderPage">Slide 4</swiper-slide>
+        <swiper-slide class="sliderPage">Slide 5</swiper-slide>
+        <swiper-slide class="sliderPage">Slide 6</swiper-slide>
+        <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
+        <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
+      </swiper>
+    </client-only>
   </main>
 </template>
 
@@ -38,17 +49,52 @@
   }
   &__slider {
     height: 300px;
-    border: solid;
+    margin-bottom: 50px;
+    background-color: palegoldenrod;
+    .sliderPage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sliderPage:nth-of-type(odd) {
+      background-color: palegreen;
+    }
   }
 }
 </style>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import Vue from 'vue'
+import { defineComponent, reactive } from '@nuxtjs/composition-api'
+import 'swiper/swiper-bundle.css'
+
+// swiper, vue-awesome-swiperはVueで読み込む
+const VueAwesomeSwiper = require('vue-awesome-swiper')
+Vue.use(VueAwesomeSwiper)
 
 export default defineComponent({
   head: {
     title: 'Hello Favorite Directory!!' 
+  },
+  setup(){
+    const swiperOptions = reactive({
+      // 最後に達したら先頭に戻る
+      loop: true,
+
+      // なぜか効かないオプション,CSSが関係？
+      // autoplay: {
+      //   delay: 2500,
+      //   disableOnInteraction: false,
+      // },
+      // navigation: {
+      //   nextEl: '.swiper-button-next',  
+      //   prevEl: '.swiper-button-prev',
+      // },
+    })
+
+    return {
+      swiperOptions,
+    }
   }
 })
 </script>
