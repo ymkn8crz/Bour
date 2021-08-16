@@ -1,7 +1,7 @@
 <template>
-  <main class="npbPage">
+  <main class="central">
     <div>
-      <div class="npbPage__title">Central League</div>
+      <div class="central__title">Central League</div>
 
       <section id="test" class="annotation">
         <div @click="showAnnotation = !showAnnotation" class="annotation__head">
@@ -51,7 +51,7 @@
         </SlideUpDown>
       </section>
 
-      <div class="npbPage__end">
+      <div class="central__end">
         <div class="endHeader">
           <h3>引用</h3>
           <ul>
@@ -74,7 +74,7 @@
 </template>
 
 <style lang="scss">
-.npbPage {
+.central {
   &__title {
     background-color: green;
     color: #fff;
@@ -127,7 +127,7 @@
 import { defineComponent, ref } from '@nuxtjs/composition-api'
 import SlideUpDown from 'vue-slide-up-down'
 import NpbItem from '~/components/pc/Directory/NpbItem.vue'
-import MockNpbData from '~/apis/MockNpbData'
+import MockCentralLeague from '~/apis/MockCentralLeague'
 import scrollTo from '~/plugins/vue-scrollto'
 
 const scrollOptions = {
@@ -139,7 +139,7 @@ const scrollOptions = {
 
 export default defineComponent({
   head: {
-    title: 'NPB' 
+    title: 'Central League' 
   },
   components:{
     SlideUpDown,
@@ -160,8 +160,8 @@ export default defineComponent({
     return {
       showAnnotation,
       closeBtn,
-      annotations: MockNpbData.annotations,
-      teams: MockNpbData.teams,
+      annotations: MockCentralLeague.annotations,
+      teams: MockCentralLeague.teams,
       message,
       updateDate,
     }

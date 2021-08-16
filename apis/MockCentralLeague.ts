@@ -1,5 +1,5 @@
-// npb mock data
-const npb = {
+// Central-League mock data
+const central = {
   annotations: [
     { name: '創設年度' },
     { name: '本拠地' },
@@ -168,4 +168,4 @@ const npb = {
   ]
 }
 
-export default npb
+export default central
