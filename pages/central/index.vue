@@ -85,7 +85,7 @@
     height: 150px;
   }
   &__end {
-    border: solid;
+    background-color: #CBFFD3;
     padding-left: 5%;
     .endHeader {
       height: 200px;
