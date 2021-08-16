@@ -28,7 +28,6 @@
         </div>
       </div>
       <div class="directory__memo">
-        <!-- <p v-text="test"></p> -->
         <p v-text="teamItem.memo"></p>
       </div>
     </div>
@@ -89,12 +88,6 @@ export default defineComponent({
       required: true,
     }
   },
-  setup() {
-    // 200文字
-    const test = 'ここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべるここにメモをならべる'
-    return {
-      test,
-    }
-  }
+  setup() {}
 })
 </script>
