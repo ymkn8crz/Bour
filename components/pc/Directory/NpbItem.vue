@@ -28,7 +28,13 @@
         </div>
       </div>
       <div class="directory__memo">
-        <p v-text="teamItem.memo"></p>
+        <p v-if="excessMemo.isExcessMemo">
+          <span>{{ excessMemo.showMemo }}</span
+          ><span class="excess"
+          ><a v-if="showHiddenMemo" @click="showHiddenMemo = false">[続きを読む]</a></span
+          ><span v-if="!showHiddenMemo">{{ excessMemo.hiddenMemo }}</span>
+        </p>
+        <p v-else>{{ teamItem.memo }}</p>
       </div>
     </div>
   </div>
@@ -70,16 +76,37 @@
     // height: auto;なので文字が全部入る
     border-top: dotted;
     p {
-      margin: 0 5%;
+      margin: 0 4%;
       padding: 10px 0;
       white-space: pre-wrap;
+    }
+    .excess {
+      color: red;
     }
   }
 }
 </style>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { computed, defineComponent, reactive, toRef, toRefs } from '@nuxtjs/composition-api'
+
+interface IProps {
+  teamItem: ITeamItem
+}
+
+interface ITeamItem {
+  memo: string
+}
+
+interface IExcessMemo {
+  isExcessMemo: boolean
+  showMemo: string
+  hiddenMemo: string
+}
+
+interface IState {
+  showHiddenMemo: boolean
+}
 
 export default defineComponent({
   props: {
@@ -88,6 +115,33 @@ export default defineComponent({
       required: true,
     }
   },
-  setup() {}
+  setup(props: IProps) {
+    // 続きを読む
+    const excessMemo = computed<IExcessMemo>(() => {
+      const maxLength = 100
+      const isExcessMemo = props.teamItem.memo.length > maxLength
+      let showMemo = ''
+      let hiddenMemo = ''
+      if (isExcessMemo) {
+        showMemo = props.teamItem.memo.substr(0, maxLength)
+        hiddenMemo = props.teamItem.memo.substr(maxLength)
+      }
+
+      return {
+        isExcessMemo,
+        showMemo,
+        hiddenMemo,
+      }
+    })
+
+    const state = reactive<IState>({
+      showHiddenMemo: true,
+    })
+
+    return {
+      excessMemo,
+      ...toRefs(state),
+    }
+  }
 })
 </script>
