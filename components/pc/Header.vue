@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="header__title">Hello Favorite Directory!!</div>
+    <div class="header__title"><a href="/">Hello Favorite Directory!!</a></div>
   </header>
 </template>
 
@@ -14,7 +14,10 @@
 
   &__title {
     padding: 15px;
-    font-size: 15px;
+    a {
+      text-decoration: none;
+      color: #FFFFFF;
+    }
   }
 }
 </style>
