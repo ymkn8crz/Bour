@@ -87,17 +87,16 @@
   &__end {
     background-color: #CBFFD3;
     padding-left: 5%;
-    .endHeader {
+    margin-bottom: 20px;
+    div {
       height: 200px;
+      padding-top: 20px;
     }
     .endMain {
       height: 200px;
       .__text {
         white-space: pre-wrap;
       }
-    }
-    .endFooter {
-      height: 200px;
     }
   }
 }
@@ -152,7 +151,7 @@ export default defineComponent({
       scrollTo('.annotation', scrollOptions)
     }
 
-    const message = 'この名鑑は個人の見解によるものです。<br>もっと詳しいことは<a href="https://www.google.com/?hl=ja">Google</a>で検索して調べてください。<br>また、この名鑑は予告なく終了する可能性があります。ご了承ください。'
+    const message = 'この名鑑は個人の主観が含まれています。<br>もっと詳しいことは<a href="https://www.google.com/?hl=ja">Google</a>で検索して調べてください。<br>また、この名鑑は予告なく終了する可能性があります。ご了承ください。'
 
     const today = new Date()
     const updateDate = `${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日`
