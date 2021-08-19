@@ -7,22 +7,24 @@
     <div class="topPage__link">
       <h3>Directory Contents</h3>
       <table>
-        <tr>
-          <td><a href="/central/">Central League</a></td>
-          <td><a>Pacific League</a></td>
-        </tr>
-        <tr>
-          <td>???</td>
-          <td>???</td>
-        </tr>
-        <tr>
-          <td>???</td>
-          <td>???</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Coming Soon...</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td><a href="/central/">Central League</a></td>
+            <td><a>Pacific League</a></td>
+          </tr>
+          <tr>
+            <td>???</td>
+            <td>???</td>
+          </tr>
+          <tr>
+            <td>???</td>
+            <td>???</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Coming Soon...</td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <h3>Thank you generating Technology!</h3>
@@ -34,9 +36,6 @@
         <swiper-slide class="sliderPage">Vue.js</swiper-slide>
         <swiper-slide class="sliderPage">Nuxt.js</swiper-slide>
         <swiper-slide class="sliderPage">SCSS</swiper-slide>
-        <!-- <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
-        <div class="swiper-button-next swiper-button-black" slot="button-next"></div> -->
-        <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </client-only>
   </main>
@@ -112,18 +111,9 @@ export default defineComponent({
   },
   setup(){
     const swiperOptions = reactive({
-      // 最後に達したら先頭に戻る
       loop: true,
 
-      // なぜか効かないオプション,CSSが関係？
-      // autoplay: {
-      //   delay: 2500,
-      //   disableOnInteraction: false,
-      // },
-      // pagination: {
-      //   el: '.swiper-pagination',
-      //   clickable: true,
-      // },
+      // 他のオプションはなぜか効かない
     })
 
     return {
