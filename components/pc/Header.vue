@@ -6,7 +6,7 @@
 
 <style lang="scss" scoped>
 .header {
-  background-color: palevioletred;
+  background-color: #db7093;
   color: #FFFFFF;
   height: 50px;
   top: 0;

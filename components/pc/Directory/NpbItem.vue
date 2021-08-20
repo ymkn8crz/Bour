@@ -64,7 +64,7 @@
     height: 100%;
     width: 35%;
     float: left;
-    background-color: palegoldenrod;
+    background-color: #dcdcdc;
   }
   &__info &__profile {
     height: 100%;
@@ -81,7 +81,7 @@
       white-space: pre-wrap;
     }
     .excess {
-      color: red;
+      color: #db7093;
     }
   }
 }

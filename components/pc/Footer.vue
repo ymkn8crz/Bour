@@ -6,7 +6,7 @@
         <ul class="link">
           <li><a href="/">TOP Page</a></li>
           <li><a href="/central">Central League</a></li>
-          <li><a>Pacific League</a></li>
+          <li><a href="/pacific/">Pacific League</a></li>
         </ul>
       </div>
     </div>
@@ -18,7 +18,7 @@
 </template>
 
 <style lang="scss" scoped>
-$color_footer: gainsboro;
+$color_footer: #dcdcdc;
 .footer {
   &__link {
     height: 100px;

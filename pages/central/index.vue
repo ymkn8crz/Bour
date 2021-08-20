@@ -74,9 +74,10 @@
 </template>
 
 <style lang="scss">
+$color_central: #0f8f2e;
 .central {
   &__title {
-    background-color: green;
+    background-color: $color_central;
     color: #fff;
     font-size: 50px;
     display: flex;
