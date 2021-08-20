@@ -10,7 +10,7 @@
         <tbody>
           <tr>
             <td><a href="/central/">Central League</a></td>
-            <td><a>Pacific League</a></td>
+            <td><a href="/pacific/">Pacific League</a></td>
           </tr>
           <tr>
             <td>???</td>
@@ -48,7 +48,7 @@
   }
   &__title {
     height: 300px;
-    background-color: palegoldenrod;
+    background-color: #eee8aa;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,8 +58,12 @@
     margin-bottom: 100px;
     table {
       width: 100%;
+      height: 200px;
       border-collapse: collapse;
       border-spacing: 0;
+    }
+    table th, table td {
+      border: solid 2px #FFFFFF;
     }
     table td {
       padding: 10px 15%;
@@ -87,7 +91,7 @@
       justify-content: center;
     }
     .sliderPage:nth-of-type(odd) {
-      background-color: palegreen;
+      background-color: #CBFFD3;
     }
     .sliderPage:nth-of-type(even) {
       background-color: #A7F1FF;
