@@ -54,11 +54,11 @@
     margin-left: 5%;
   }
   &__body {
-    margin-bottom: 15px;  // 名鑑の間
+    margin-bottom: 15px;
     border-style: none solid solid;
   }
   &__info {
-    height: 200px;  // 画像とプロフィールの高さ
+    height: 200px;
   }
   &__info &__image {
     height: 100%;
@@ -70,10 +70,8 @@
     height: 100%;
     width: 65%;
     float: right;
-    // background-color // チームカラーにする？
   }
   &__memo {
-    // height: auto;なので文字が全部入る
     border-top: dotted;
     p {
       margin: 0 4%;
