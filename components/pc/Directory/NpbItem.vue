@@ -6,7 +6,12 @@
     <div class="directory__body">
       <div class="directory__info">
         <div class="directory__image">
-          <img src="" alt="No Image.">
+          <img
+            :src="getImage(teamItem.id)"
+            :alt="teamItem.teamName"
+            height="100%"
+            width="auto"
+          >
         </div>
         <div class="directory__profile">
           <ol>
@@ -65,6 +70,7 @@
     width: 35%;
     float: left;
     background-color: #dcdcdc;
+    text-align: center;
   }
   &__info &__profile {
     height: 100%;
@@ -136,9 +142,56 @@ export default defineComponent({
       showHiddenMemo: true,
     })
 
+    const getImage = (id: number) => {
+      let imgSrc = ''
+      switch (id) {
+        case 1:
+          imgSrc = require('~/assets/logo_t_l.gif')
+          break;
+        case 2:
+          imgSrc = require('~/assets/logo_g_l.gif')
+          break;
+        case 3:
+          imgSrc = require('~/assets/logo_s_l.gif')
+          break;
+        case 4:
+          imgSrc = require('~/assets/logo_d_l.gif')
+          break;
+        case 5:
+          imgSrc = require('~/assets/logo_c_l.gif')
+          break;
+        case 6:
+          imgSrc = require('~/assets/logo_db_l.gif')
+          break;
+        case 7:
+          imgSrc = require('~/assets/logo_b_l.gif')
+          break;
+        case 8:
+          imgSrc = require('~/assets/logo_e_l.gif')
+          break;
+        case 9:
+          imgSrc = require('~/assets/logo_h_l.gif')
+          break;
+        case 10:
+          imgSrc = require('~/assets/logo_m_l.gif')
+          break;
+        case 11:
+          imgSrc = require('~/assets/logo_l_l.gif')
+          break;
+        case 12:
+          imgSrc = require('~/assets/logo_f_l.gif')
+          break;
+        default:
+          break;
+      }
+
+      return imgSrc
+    }
+
     return {
       excessMemo,
       ...toRefs(state),
+      getImage,
     }
   }
 })
