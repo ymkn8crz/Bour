@@ -28,13 +28,7 @@
         </div>
       </div>
       <div class="directory__memo">
-        <p v-if="excessMemo.isExcessMemo">
-          <span>{{ excessMemo.showMemo }}</span
-          ><span class="excess"
-          ><a v-if="showHiddenMemo" @click="showHiddenMemo = false">[続きを読む]</a></span
-          ><span v-if="!showHiddenMemo">{{ excessMemo.hiddenMemo }}</span>
-        </p>
-        <p v-else>{{ teamItem.memo }}</p>
+        <p>{{ teamItem.memo }}</p>
       </div>
     </div>
   </div>
@@ -116,14 +110,9 @@ export default defineComponent({
   setup(props: IProps) {
     // 続きを読む
     const excessMemo = computed<IExcessMemo>(() => {
-      const maxLength = 100
-      const isExcessMemo = props.teamItem.memo.length > maxLength
+      const isExcessMemo = true
       let showMemo = ''
       let hiddenMemo = ''
-      if (isExcessMemo) {
-        showMemo = props.teamItem.memo.substr(0, maxLength)
-        hiddenMemo = props.teamItem.memo.substr(maxLength)
-      }
 
       return {
         isExcessMemo,
