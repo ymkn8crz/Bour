@@ -114,6 +114,7 @@ export default defineComponent({
   },
   setup(){
     const swiperOptions = reactive({
+      loop:true
     })
 
     return {

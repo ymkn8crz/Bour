@@ -7,7 +7,7 @@
       <div class="directory__info">
         <div class="directory__image">
           <img
-            src="~/assets/logo_t_l.gif"
+            :src="teamItem.image"
             alt="No Image."
             height="100%"
             width="auto"
@@ -33,7 +33,10 @@
         </div>
       </div>
       <div class="directory__memo">
-        <p>{{ teamItem.memo }}</p>
+        <p v-if="isOmission">{{ filterdItem(teamItem.memo) }}<span class="excess"
+          ><a @click="isOmission = false">[続きを読む]</a></span
+          ></p>
+        <p v-else>{{ teamItem.memo }}</p>
       </div>
     </div>
   </div>
@@ -86,7 +89,7 @@
 </style>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, toRefs } from '@nuxtjs/composition-api'
+import { defineComponent, reactive, ref, toRefs } from '@nuxtjs/composition-api'
 
 interface IProps {
   teamItem: ITeamItem
@@ -94,12 +97,6 @@ interface IProps {
 
 interface ITeamItem {
   memo: string
-}
-
-interface IExcessMemo {
-  isExcessMemo: boolean
-  showMemo: string
-  hiddenMemo: string
 }
 
 interface IState {
@@ -114,25 +111,23 @@ export default defineComponent({
     }
   },
   setup(props: IProps) {
-    // 続きを読む
-    const excessMemo = computed<IExcessMemo>(() => {
-      const isExcessMemo = true
-      let showMemo = ''
-      let hiddenMemo = ''
+    const isOmission = ref(false)
 
-      return {
-        isExcessMemo,
-        showMemo,
-        hiddenMemo,
-      }
-    })
+    if(props.teamItem.memo.length > 100){
+      isOmission.value = true
+    }
 
     const state = reactive<IState>({
       showHiddenMemo: true,
     })
 
+    const filterdItem = (text:String):String => {
+      return text.substring(0,100)
+    }
+
     return {
-      excessMemo,
+      filterdItem,
+      isOmission,
       ...toRefs(state),
     }
   }

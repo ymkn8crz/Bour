@@ -3,11 +3,11 @@
     <div>
       <div class="central__title">Central League</div>
 
-      <section id="test" class="annotation">
+      <section id="top-annotation" class="annotation">
         <div @click="showAnnotation = !showAnnotation" class="annotation__head">
           <h2>注釈はこちら</h2>
         </div>
-        <SlideUpDown :active="showAnnotation" :duration="3000">
+        <SlideUpDown :active="showAnnotation" :duration="duration">
           <div class="annotation__body">
             <ol>
               <li v-for="item in annotations" :key="item.name">{{ item.name }}</li>
@@ -17,7 +17,7 @@
               class="closeBtn"
               @click.prevent="
                 showAnnotation = false
-                closeBtn()
+                topAnnotationCloseBtn()
               "
             >閉じる</a>
           </div>
@@ -30,11 +30,11 @@
         :team-item="item"
       />
 
-      <section id="test" class="annotation">
+      <section id="bottom-annotation" class="annotation">
         <div @click="showAnnotation = !showAnnotation" class="annotation__head">
           <h2>注釈はこちら</h2>
         </div>
-        <SlideUpDown :active="showAnnotation" :duration="3000">
+        <SlideUpDown :active="showAnnotation" :duration="duration">
           <div class="annotation__body">
             <ol>
               <li v-for="item in annotations" :key="item.name">{{ item.name }}</li>
@@ -44,7 +44,7 @@
               class="closeBtn"
               @click.prevent="
                 showAnnotation = false
-                closeBtn()
+                bottomAnnotationCloseBtn()
               "
             >閉じる</a>
           </div>
@@ -63,7 +63,9 @@
         </div>
         <div class="endMain">
           <h3>名鑑について</h3>
-          <p v-text="message" class="endMain__text"></p>
+          <v-html>
+            <p v-html="message" class="endMain__text"></p>
+          </v-html>
         </div>
         <div class="endFooter">
           <h3>最終更新日</h3>
@@ -131,11 +133,18 @@ import NpbItem from '~/components/pc/Directory/NpbItem.vue'
 import MockCentralLeague from '~/apis/MockCentralLeague'
 import scrollTo from '~/plugins/vue-scrollto'
 
-const scrollOptions = {
+const topScrollOptions = {
   container: 'body',
   duration: 500,
   easing: 'ease',
-  offset: 0,
+  offset: -60,
+}
+
+const bottomScrollOptions = {
+  container: 'body',
+  duration: 500,
+  easing: 'ease',
+  offset: -60,
 }
 
 export default defineComponent({
@@ -149,8 +158,14 @@ export default defineComponent({
   setup() {
     const showAnnotation = ref<Boolean>(false)
 
-    const closeBtn = () => {
-      scrollTo('#test', scrollOptions)
+    const duration = 500
+
+    const topAnnotationCloseBtn = () => {
+      scrollTo('#top-annotation', topScrollOptions)
+    }
+
+    const bottomAnnotationCloseBtn = () => {
+      scrollTo('#bottom-annotation', bottomScrollOptions)
     }
 
     const message = 'この名鑑は個人の主観が含まれています。<br>もっと詳しいことは<a href="https://www.google.com/?hl=ja">Google</a>で検索して調べてください。<br>また、この名鑑は予告なく終了する可能性があります。ご了承ください。'
@@ -159,8 +174,10 @@ export default defineComponent({
     const updateDate = `${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日`
 
     return {
+      duration,
       showAnnotation,
-      closeBtn,
+      topAnnotationCloseBtn,
+      bottomAnnotationCloseBtn,
       annotations: MockCentralLeague.annotations,
       teams: MockCentralLeague.teams,
       message,
