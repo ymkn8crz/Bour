@@ -6,7 +6,12 @@
     <div class="directory__body">
       <div class="directory__info">
         <div class="directory__image">
-          <img src="" alt="No Image.">
+          <img
+            src="~/assets/logo_t_l.gif"
+            alt="No Image."
+            height="100%"
+            width="auto"
+          >
         </div>
         <div class="directory__profile">
           <ol>
@@ -59,6 +64,7 @@
     width: 35%;
     float: left;
     background-color: #dcdcdc;
+    text-align: center;
   }
   &__info &__profile {
     height: 100%;
