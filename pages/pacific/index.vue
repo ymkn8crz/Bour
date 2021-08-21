@@ -55,8 +55,8 @@
         <div class="endHeader">
           <h3>引用</h3>
           <ul>
-            <li><a href="https://o-kaikei.net/blogs/919/">大野会計ブログ</a>&nbsp;阪神タイガースと景気</li>
-            <li><a href="https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%B3%E3%83%88%E3%83%A9%E3%83%AB%E3%83%BB%E3%83%AA%E3%83%BC%E3%82%B0">wikipedia</a>&nbsp;セントラル・リーグ</li>
+            <li><a href="https://npb.jp/teams/">日本野球機構</a>&nbsp;球団別インデックス</li>
+            <li><a href="https://ja.wikipedia.org/wiki/%E3%83%91%E3%82%B7%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%BB%E3%83%AA%E3%83%BC%E3%82%B0">wikipedia</a>&nbsp;パシフィック・リーグ</li>
             <li><a href="https://pitcher-room.com/rule/professional-baseball-mascot/">野球のコツと理論</a>&nbsp;プロ野球全12球団のマスコットキャラクター簡単早見総まとめ</li>
           </ul>
         </div>
