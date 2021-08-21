@@ -105,7 +105,6 @@ import Vue from 'vue'
 import { defineComponent, reactive } from '@nuxtjs/composition-api'
 import 'swiper/swiper-bundle.css'
 
-// swiper, vue-awesome-swiperはVueで読み込む
 const VueAwesomeSwiper = require('vue-awesome-swiper')
 Vue.use(VueAwesomeSwiper)
 
@@ -115,9 +114,6 @@ export default defineComponent({
   },
   setup(){
     const swiperOptions = reactive({
-      loop: true,
-
-      // 他のオプションはなぜか効かない
     })
 
     return {
