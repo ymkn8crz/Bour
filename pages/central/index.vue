@@ -7,7 +7,7 @@
         <div @click="showAnnotation = !showAnnotation" class="annotation__head">
           <h2>注釈はこちら</h2>
         </div>
-        <SlideUpDown :active="showAnnotation" :duration="200">
+        <SlideUpDown :active="showAnnotation" :duration="3000">
           <div class="annotation__body">
             <ol>
               <li v-for="item in annotations" :key="item.name">{{ item.name }}</li>
@@ -34,7 +34,7 @@
         <div @click="showAnnotation = !showAnnotation" class="annotation__head">
           <h2>注釈はこちら</h2>
         </div>
-        <SlideUpDown :active="showAnnotation" :duration="200">
+        <SlideUpDown :active="showAnnotation" :duration="3000">
           <div class="annotation__body">
             <ol>
               <li v-for="item in annotations" :key="item.name">{{ item.name }}</li>
@@ -62,7 +62,7 @@
         </div>
         <div class="endMain">
           <h3>名鑑について</h3>
-          <p v-html="message" class="endMain__text"></p>
+          <p v-text="message" class="endMain__text"></p>
         </div>
         <div class="endFooter">
           <h3>最終更新日</h3>
@@ -134,7 +134,7 @@ const scrollOptions = {
   container: 'body',
   duration: 500,
   easing: 'ease',
-  offset: -50,
+  offset: 0,
 }
 
 export default defineComponent({
@@ -149,7 +149,7 @@ export default defineComponent({
     const showAnnotation = ref<Boolean>(false)
 
     const closeBtn = () => {
-      scrollTo('.annotation', scrollOptions)
+      scrollTo('#test', scrollOptions)
     }
 
     const message = 'この名鑑は個人の主観が含まれています。<br>もっと詳しいことは<a href="https://www.google.com/?hl=ja">Google</a>で検索して調べてください。<br>また、この名鑑は予告なく終了する可能性があります。ご了承ください。'
