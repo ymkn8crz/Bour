@@ -86,7 +86,7 @@
 </style>
 
 <script lang="ts">
-import { computed, defineComponent, reactive, toRef, toRefs } from '@nuxtjs/composition-api'
+import { computed, defineComponent, reactive, toRefs } from '@nuxtjs/composition-api'
 
 interface IProps {
   teamItem: ITeamItem

@@ -149,7 +149,7 @@ export default defineComponent({
     const showAnnotation = ref<Boolean>(false)
 
     const closeBtn = () => {
-      scrollTo('.annotation', scrollOptions)
+      scrollTo('#test', scrollOptions)
     }
 
     const message = 'この名鑑は個人の主観が含まれています。<br>もっと詳しいことは<a href="https://www.google.com/?hl=ja">Google</a>で検索して調べてください。<br>また、この名鑑は予告なく終了する可能性があります。ご了承ください。'
