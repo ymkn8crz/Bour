@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="footer__small">
-      <div class="head">@ymkn8crz</div>
+      <div class="head">Author:@ymkn8crz</div>
       <div class="body">GitHub:<a href="https://github.com/ymkn8crz/Bour">ymkn8crz/Bour</a></div>
     </div>
   </footer>
@@ -48,6 +48,7 @@ $color_footer: #dcdcdc;
     height: 100px;
     width: 30%;
     float: right;
+    font-size: 10px;
     background-color: $color_footer;
     .head, .body {
       height: 50%;
